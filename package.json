@@ -1,0 +1,33 @@
+{
+  "name": "binarizer",
+  "version": "0.1.0",
+  "description": "Binarize images with OpenCV",
+  "main": "source/index.js",
+  "bin": {
+    "binarizer": "source/cli.js"
+  },
+  "keywords": [
+    "binarize",
+    "imagemagick"
+  ],
+  "author": "Adrian Sieber",
+  "license": "MIT",
+  "dependencies": {
+    "gm": "^1.20.0",
+    "opencv": "^3.0.0"
+  },
+  "devDependencies": {
+    "ij-test": "^1.14.1"
+  },
+  "scripts": {
+    "test": "babel-node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adius/binarizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adius/binarizer/issues"
+  },
+  "homepage": "https://github.com/adius/binarizer#readme"
+}

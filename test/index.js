@@ -7,6 +7,6 @@ let inputFilePath = path
 let outputFilePath = path.resolve(__dirname, './cat-bw.jpg')
 
 binarizer
-	.inputPath(inputFilePath)
-	.outputPath(outputFilePath)
+	.setInputPath(inputFilePath)
+	.setOutputPath(outputFilePath)
 	.binarize(console.error)

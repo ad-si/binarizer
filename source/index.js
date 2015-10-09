@@ -5,9 +5,11 @@ import cv from 'opencv'
 export default class {
 
 	static binarize (callback) {
+
 		cv.readImage(this.inputPath, (error, image) => {
 			if (error) {
-				callback(error)
+				if (typeof callback === 'function')
+					callback(error)
 				return
 			}
 
@@ -15,34 +17,34 @@ export default class {
 				callback(new Error('Image has no size'))
 
 			image.convertGrayscale()
-			let binarizedImage = image.threshold(
-				0, 255, 'Binary', 'Otsu', 'asdf'
-			)
+			let binarizedImage = image.threshold(0, 255, 'Binary', 'Otsu')
 			binarizedImage.save(this.outputPath)
-			callback()
+
+			if (typeof callback === 'function')
+				callback()
 		})
 	}
 
 
-	static inputPath (path) {
-		if (path) {
-			this.inputPath = path
-			this.grayscalePath = path.replace(/^(.*)\.(jpg|png)$/i, '$1-gray.$2')
-			this.outputPath = this.outputPath || path
-				.replace(/^(.*)\.(jpg|png)$/i, '$1-bw.$2')
-			return this
-		}
-		else {
-			return this.inputPath
-		}
+	static setInputPath (path) {
+
+		if (typeof path !== 'string')
+			throw TypeError()
+
+		this.inputPath = path
+		this.outputPath = this.outputPath || path.replace(
+			/^(.*)\.(jpg|png)$/i,
+			'$1-bw.png'
+		)
+		return this
 	}
 
-	static outputPath (path) {
-		if (path) {
-			this.outputPath = path
-			return this
-		}
-		else
-			return this.outputPath
+	static setOutputPath (path) {
+
+		if (typeof path !== 'string' && typeof path !== 'undefined')
+			throw TypeError(typeof path + ' instead of "string"')
+
+		this.outputPath = path || this.outputPath
+		return this
 	}
 }

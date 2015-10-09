@@ -13,6 +13,7 @@
   "author": "Adrian Sieber",
   "license": "MIT",
   "dependencies": {
+    "fs-promise": "^0.3.1",
     "gm": "^1.20.0",
     "opencv": "^3.0.0"
   },

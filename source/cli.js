@@ -15,3 +15,6 @@ binarizer
 	.setInputPath(inputFilePath)
 	.setOutputPath(outputFilePath)
 	.binarize()
+	.catch(error => {
+		throw error
+	})

@@ -18,10 +18,12 @@
     "opencv": "^3.0.0"
   },
   "devDependencies": {
-    "ij-test": "^1.14.1"
+    "ij-test": "^1.14.1",
+    "tap-dot": "^1.0.0",
+    "tape": "^4.2.1"
   },
   "scripts": {
-    "test": "babel-node test/index.js"
+    "test": "babel-node test/index.js | tap-dot"
   },
   "repository": {
     "type": "git",

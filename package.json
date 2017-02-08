@@ -13,17 +13,20 @@
   "author": "Adrian Sieber",
   "license": "MIT",
   "dependencies": {
-    "fs-promise": "^0.3.1",
-    "gm": "^1.20.0",
-    "opencv": "^3.0.0"
+    "fs-promise": "^1.0.0",
+    "gm": "^1.23.0",
+    "opencv": "^6.0.0"
   },
   "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-javascript": "^1.2.0",
     "ij-test": "^1.14.1",
-    "tap-dot": "^1.0.0",
-    "tape": "^4.2.1"
+    "tap-dot": "^1.0.5",
+    "tape": "^4.6.3"
   },
   "scripts": {
-    "test": "babel-node test/index.js | tap-dot"
+    "lint": "eslint .",
+    "test": "npm run lint && node test/index.js | tap-dot"
   },
   "repository": {
     "type": "git",
@@ -32,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/adius/binarizer/issues"
   },
-  "homepage": "https://github.com/adius/binarizer#readme"
+  "homepage": "https://github.com/adius/binarizer#readme",
+  "eslintConfig": {
+    "extends": "eslint-config-javascript"
+  }
 }
